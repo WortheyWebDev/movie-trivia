@@ -1,0 +1,228 @@
+@import url('https://fonts.googleapis.com/css2?family=Limelight&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poiret+One&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-family: "Limelight", sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+h1 {
+    font-family: "Poiret One", sans-serif;
+    text-transform: uppercase;
+    font-size: 4rem;
+    font-weight: 100;
+}
+
+body {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    color: #333 ;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.8),
+                       rgba(0, 0, 0, 0.8)), url(./images/theatre-bg.jpg);
+    background-repeat: none;
+    overflow: hidden;
+}
+
+#limb-darkening {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    background: radial-gradient(
+        circle at center,
+        transparent 60%,
+        rgba(0, 0, 0, 0.7) 100%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+#roof {
+    position: absolute;
+    height: 500px;
+    width: 2160px;
+    background-color: gray;
+    border-radius: 120%;
+    transform: rotateX(50deg);
+    top: -270px;
+    background-image: linear-gradient(to top, rgb(0, 0, 0), rgb(82, 82, 82));
+}
+
+#title {
+    position: absolute;
+    top: 80px;
+    background: -webkit-linear-gradient(goldenrod, rgb(226, 212, 147));
+    background: -webkit-linear-gradient(goldenrod, rgb(226, 212, 147));
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+#screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    gap: 50px;
+    height: 500px;
+    width: 1000px;
+    padding: 140px;
+    text-align: center;
+    background-image: linear-gradient(to bottom right, #fff, #f1f1f1);
+    clip-path: path('M0,0 Q500,30 1000,0 L1000,500 Q500,470 0,500 Z');
+}
+
+#screen::after {
+    content: "";
+    background-image: url(./images/so-white.png);
+    height: 300%;
+    width: 300%;
+    opacity: 0.3;
+    position: fixed;
+    animation: grain 8s steps(10) infinite;
+    pointer-events: none;
+}
+
+#answer-section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    width: 650px;
+    gap: 20px;
+}
+
+.answer {
+    font-family: "Poiret One", sans-serif;
+    text-transform: uppercase;
+    font-weight: bold;
+    position: relative;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding-left: 20px;
+    width: 300px;
+    height: 40px;
+    border: .5px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.answer::before {
+    position: absolute;
+    content: '';
+    width: 290px;
+    height: 46px;
+    top: -4px;
+    left: 4px;
+    border: .5px solid black;
+    border-radius: 5px;
+}
+
+#restart {
+    font-family: "Poiret One", sans-serif;
+    text-transform: uppercase;
+    padding: 10px;
+}
+
+#restart:hover {
+    background-image: linear-gradient(goldenrod, rgb(226, 212, 147));
+    font-weight: bold;
+    border-radius: 10px;
+    color: #FFF;
+    text-shadow: 1px 1px 2px #000;
+}
+
+#screen-glow {
+    filter: drop-shadow(0 0 50px rgba(255, 255, 255, 0.5));
+}
+
+#curtain-left {
+    position: absolute;
+    top: 0;
+    left: -70px;
+    height: 130%;
+    width: 20%;
+    filter: brightness(40%);
+}
+
+#curtain-right {
+    position: absolute;
+    top: 0;
+    right: -70px;
+    height: 130%;
+    width: 20%;
+    filter: brightness(40%);
+    transform: rotateY(180deg);
+}
+
+#theater-seats {
+    position: absolute;
+    bottom: -70px;
+    height: 24%;
+    width: 2160px;
+}
+
+@media only screen and (max-width: 430px) {
+    #screen {
+        padding-top: 60px;
+        gap: 30px;
+    }
+
+    #curtain-left,
+    #curtain-right {
+        display: none;
+    }
+
+    #question-text {
+        width: 50%;
+    }
+
+    #answer-section {
+        flex-direction: column;
+    }
+}
+
+@media only screen and (max-width: 1340px) {
+    #curtain-left,
+    #curtain-right {
+        display: none;
+    }
+}
+
+@media only screen and (max-height: 724px) {
+    #theater-seats {
+        display: none;
+    }
+}
+
+@media only screen and (max-height: 760px) {
+    #title {
+        display: none;
+    }
+}
+
+@keyframes grain {
+    0%, 100% { transform:translate(0, 0) }
+    10% { transform:translate(-5%, -10%) }
+    20% { transform:translate(-15%, 5%) }
+    30% { transform:translate(7%, -25%) }
+    40% { transform:translate(-5%, 25%) }
+    50% { transform:translate(-15%, 10%) }
+    60% { transform:translate(15%, 0%) }
+    70% { transform:translate(0%, 15%) }
+    80% { transform:translate(3%, 35%) }
+    90% { transform:translate(-10%, 10%) }
+};
