@@ -23,6 +23,6 @@ cd movie-trivia
 3. Open the "index.html" file in your preferred browser
 
 ## Screenshot
-![Screenshot](https://github.com/WortheyWebDev/movie-trivia/screenshots/movie-trivia.png)
+![Screenshot](https://github.com/WortheyWebDev/movie-trivia/blob/main/screenshots/movie-trivia.png)
 
 ---
