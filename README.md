@@ -1,7 +1,7 @@
 # Movie Trivia Game
 
 ## Description
-A 10-question movie trivia game that scores the user's correct answers at the end.
+A 10-question movie trivia game. The application reacts to a user's answers, flagging them as correct or incorrect before moving to the next question. Users have the option to restart the quiz at any time. When the quiz is complete, users are presented with their final score.
 
 ## Features
 - **Multiple Choice Questions:** Users are presented with four potential answers for each question.
